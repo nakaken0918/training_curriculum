@@ -24,7 +24,7 @@ class CalendarsController < ApplicationController
 
     # Dateオブジェクトは、日付を保持しています。下記のように`.today.day`とすると、今日の日付を取得できます。
     @todays_date = Date.today
-    # 例)　今日が2月1日の場合・・・ Date.today.day => 1日
+    # 例)  今日が2月1日の場合・・・ Date.today.day => 1日
 
     @week_days = []
 
@@ -35,6 +35,7 @@ class CalendarsController < ApplicationController
       plans.each do |plan|
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
+
       # 今日の日付を取得し、+ x を追加。timesの実行毎に + 1 される。
       wday_num = Date.today.day + x
       # 中身の値を 0 ~ 6 のローテーションにしたいので、7 以上の場合に -7 を実行。
